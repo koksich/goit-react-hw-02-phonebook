@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const ContactForm = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
@@ -24,3 +26,7 @@ export const ContactForm = ({ onSubmit }) => {
     </form>
   );
 };
+
+ContactForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+}
