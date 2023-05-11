@@ -4,9 +4,11 @@ import { nanoid } from 'nanoid';
 // import contacts from 'contacts.json';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
-import { Filter } from 'Filter/Filter';
+import { Filter } from 'components/Filter/Filter';
+import { Wrapper, Title} from './App.styled';
 export class App extends Component {
   state = {
+    // contacts: contacts;
     contacts: [],
     filter: '',
   };
@@ -62,8 +64,8 @@ export class App extends Component {
 
   render() {
     return (
-      <>
-        <h1>Phonebook</h1>
+      <Wrapper>
+        <Title>Phonebook</Title>
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} onChange={this.onChangeFilter} />
@@ -71,7 +73,7 @@ export class App extends Component {
           contacts={this.showFilteredContacts()}
           onDeleteContact={this.deleteContact}
         />
-      </>
+      </Wrapper>
     );
   }
 }
